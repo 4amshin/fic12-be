@@ -40,8 +40,8 @@
                         name="role" id="role">
                         <option value="">Select Role</option>
                         <option value="admin">Admin</option>
-                        <option value="owner">Owner</option>
-                        <option value="pegawai">Pegawai</option>
+                        <option value="staff">Staff</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
 
