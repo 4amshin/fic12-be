@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('category', ['food', 'drink', 'snack']);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('image')->nullable();
+            $table->boolean('is_best_seller')->default(false);
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'name' => 'Admin FIC11',
+            'name' => 'Admin FIC12',
             'email' => 'admin@fic12.id',
             'role' => 'admin',
             'email_verified_at' => now(),
@@ -26,8 +26,8 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Pak Fulan',
-            'email' => 'owner@fic12.id',
-            'role' => 'owner',
+            'email' => 'staff@fic12.id',
+            'role' => 'staff',
             'email_verified_at' => now(),
             'unhashed_password' => 'password',
             'password' => Hash::make('password'),
