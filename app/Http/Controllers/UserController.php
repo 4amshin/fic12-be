@@ -12,10 +12,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('created_at', 'desc')->paginate(5);
+        return view('admin.users.list_user', compact('users'));
     }
 
-    /**
+    /**a
      * Show the form for creating a new resource.
      */
     public function create()
