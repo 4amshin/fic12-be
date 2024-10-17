@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*----------------------------------------NON AUTH--------------------------------------*/
@@ -19,13 +22,13 @@ Route::middleware(['auth', 'verified'])->group(function() {
     })->name('profile');
 
     /*----------------------------------------USER--------------------------------------*/
-    // Route::resource('user', UserController::class);
+    Route::resource('user', UserController::class);
 
 
     /*----------------------------------------Product--------------------------------------*/
-    // Route::resource('product', ProductController::class);
+    Route::resource('product', ProductController::class);
 
 
     /*----------------------------------------Order--------------------------------------*/
-    // Route::resource('order', OrderController::class);
+    Route::resource('order', OrderController::class);
 });
