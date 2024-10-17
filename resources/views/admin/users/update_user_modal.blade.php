@@ -32,8 +32,8 @@
                     <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
                     <select name="role" id="role" class="mt-1 form-select w-full">
                         <option value="admin">Admin</option>
-                        <option value="owner">Owner</option>
-                        <option value="pegawai">Pegawai</option>
+                        <option value="staff">Staff</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
 
