@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Admin FIC11',
-            'email' => 'admin@fic11.id',
+            'email' => 'admin@fic12.id',
             'role' => 'admin',
             'email_verified_at' => now(),
             'unhashed_password' => 'password',
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Pak Fulan',
-            'email' => 'owner@fic11.id',
+            'email' => 'owner@fic12.id',
             'role' => 'owner',
             'email_verified_at' => now(),
             'unhashed_password' => 'password',

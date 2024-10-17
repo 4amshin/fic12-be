@@ -6,7 +6,7 @@
     <!--Header-->
     <div class="mt-8 text-center">
         <h4 class="mb-1 text-custom-500 dark:text-custom-500">Welcome Back !</h4>
-        <p class="text-slate-500 dark:text-zink-200">Sign in to continue to FIC11.</p>
+        <p class="text-slate-500 dark:text-zink-200">Sign in to continue to FIC12.</p>
     </div>
 
     <!--Form-->
