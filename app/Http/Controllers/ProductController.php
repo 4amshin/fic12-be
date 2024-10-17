@@ -62,7 +62,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('admin.products.update_product', compact('product'));
     }
 
     /**
@@ -70,7 +70,23 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $validatedData = $request->validated();
+
+        $oldImage = $product->image;
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = 'public/products';
+
+            $this->createDirectoryIfNotExists($path);
+
+            $file->store($path);
+            $validatedData['image'] = $file->hashName();
+
+            $this->deleteOldFile($path, $oldImage);
+        }
+
+        $product->update($validatedData);
+        return redirect()->route('product.index')->with('success', 'Product Data Updated');
     }
 
     /**
