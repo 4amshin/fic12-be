@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.add_product');
     }
 
     /**
@@ -30,7 +31,22 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $path = 'public/products';
+
+            $this->createDirectoryIfNotExists($path);
+
+            $file->store($path);
+            $validatedData['image'] = $file->hashName();
+        }
+
+        // dd($validatedData);
+
+        Product::create($validatedData);
+        return redirect()->route('product.index')->with('success', 'New Product Added');
     }
 
     /**
@@ -63,5 +79,19 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    protected function createDirectoryIfNotExists($path)
+    {
+        if (!Storage::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+    }
+
+    protected function deleteOldFile($path, $oldFile)
+    {
+        if ($oldFile) {
+            Storage::disk($path)->delete($oldFile);
+        }
     }
 }
