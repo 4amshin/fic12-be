@@ -19,7 +19,7 @@
                         class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md">
                         Cancel
                     </button>
-                    <form id="deleteForm" action="{{ route('user.destroy', 'productId') }}" method="POST">
+                    <form id="deleteForm" action="{{ route('user.destroy', ':id') }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit"
