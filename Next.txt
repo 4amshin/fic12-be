@@ -1,1 +1,3 @@
-- Lanjut Video
+- Buat API
+    - Auth (login, logout)
+    - Product, Order
