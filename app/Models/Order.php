@@ -17,7 +17,13 @@ class Order extends Model
         'payment_method',
     ];
 
-    public function kasir() {
+    public function kasir()
+    {
         return $this->belongsTo(User::class, 'kasir_id', 'id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(OrderItem::class);
     }
 }
