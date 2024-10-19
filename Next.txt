@@ -1,3 +1,3 @@
 - Buat API
-    - Auth (login, logout)
     - Product, Order
+    - Product API (Display list sudah, sisa yang lain)
