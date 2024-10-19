@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -57,9 +58,29 @@ class ProductApiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateProductRequest $request, Product $productApi)
     {
-        //
+        $validatedData = $request->validated();
+
+        if($validatedData) {
+            //Handle Image
+            $oldImage = $productApi->image;
+            if($request->hasFile('image')) {
+                $file = $request->file('image');
+                $path = 'public/products';
+
+                //create folder if not exist
+                $this->createDirectoryIfNotExists($path);
+
+                $file->store($path);
+                $validatedData['image'] = $file->hashName();
+
+                $this->deleteOldFile($path, $oldImage);
+            }
+
+            $productApi->update($validatedData);
+            return new ProductResource($productApi);
+        }
     }
 
     /**
