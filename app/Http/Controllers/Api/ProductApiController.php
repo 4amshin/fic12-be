@@ -7,7 +7,9 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 
 class ProductApiController extends Controller
@@ -86,9 +88,21 @@ class ProductApiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $productApi)
     {
-        //
+        try{
+            $this->deleteOldFile('public/products', $productApi->image);
+            $productApi->delete();
+
+            return response()->json([
+                'message' => 'Product Deleted Successfully'
+            ], Response::HTTP_OK);
+        }catch (Exception $e) {
+            return response()->json([
+                'message' => 'Deleting Failed',
+                'error' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     protected function createDirectoryIfNotExists($path)
