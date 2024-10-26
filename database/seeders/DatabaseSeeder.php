@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
         ]);
 
-        Order::factory(2)->withItems(3)->create();
+        Order::factory(2)->withItems(2)->create();
     }
 }

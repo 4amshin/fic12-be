@@ -66,5 +66,5 @@
 
 
 @push('customJs')
-    <script src="assets/js/pages/auth-login.init.js"></script>
+    <script src="{{ asset('assets/js/pages/auth-login.init.js') }}"></script>
 @endpush

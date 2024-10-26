@@ -1,3 +1,6 @@
 - Buat API
     - Product, Order
     - Product API (Display list sudah, sisa yang lain)
+
+- Categori
+    - Handle Category CRUD

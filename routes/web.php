@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -31,4 +32,7 @@ Route::middleware(['auth', 'verified'])->group(function() {
 
     /*----------------------------------------Order--------------------------------------*/
     Route::resource('order', OrderController::class);
+
+    /*----------------------------------------Category--------------------------------------*/
+    // Route::resource('category', CategoryController::class);
 });
