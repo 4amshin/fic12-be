@@ -66,13 +66,12 @@
 
                                         <!--Name-->
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 name">
-                                            {{ $category->name }}
+                                            {{ ucwords($category->name) }}
                                         </td>
 
-                                        <!--Category-->
+                                        <!--Created At-->
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 created_at">
                                             {{ \Carbon\Carbon::parse($category->created_at)->format('d M Y - h:i A') }}
-
                                         </td>
 
                                         <!--Action-->
@@ -125,7 +124,7 @@
     </div>
 
     <!--Add User Modal-->
-    {{-- @include('admin.users.add_user_modal') --}}
+    @include('admin.categories.add_category_modal')
 
     <!--Update User Modal-->
     {{-- @include('admin.users.update_user_modal') --}}
