@@ -71,7 +71,8 @@
 
                                         <!--Category-->
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 created_at">
-                                            {{ $category->created_at }}
+                                            {{ \Carbon\Carbon::parse($category->created_at)->format('d M Y - h:i A') }}
+
                                         </td>
 
                                         <!--Action-->
