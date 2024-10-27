@@ -34,5 +34,5 @@ Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('order', OrderController::class);
 
     /*----------------------------------------Category--------------------------------------*/
-    // Route::resource('category', CategoryController::class);
+    Route::resource('category', CategoryController::class);
 });
