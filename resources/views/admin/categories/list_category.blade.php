@@ -129,8 +129,8 @@
     <!--Update Category Modal-->
     @include('admin.categories.update_category_modal')
 
-    <!--Delete User Modal-->
-    {{-- @include('admin.users.delete_user_modal') --}}
+    <!--Delete Category Modal-->
+    @include('admin.categories.delete_category_modal')
 
 @endsection
 
