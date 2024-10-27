@@ -123,11 +123,11 @@
         </div>
     </div>
 
-    <!--Add User Modal-->
+    <!--Add Category Modal-->
     @include('admin.categories.add_category_modal')
 
-    <!--Update User Modal-->
-    {{-- @include('admin.users.update_user_modal') --}}
+    <!--Update Category Modal-->
+    @include('admin.categories.update_category_modal')
 
     <!--Delete User Modal-->
     {{-- @include('admin.users.delete_user_modal') --}}
