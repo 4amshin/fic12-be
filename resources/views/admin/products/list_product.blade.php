@@ -101,7 +101,7 @@
 
                                         <!--Category-->
                                         <td class="px-3.5 py-2.5 first:pl-5 last:pr-5 category">
-                                            {{ $product->category }}
+                                            {{ $product->category->name }}
                                         </td>
 
                                         <!--Description-->

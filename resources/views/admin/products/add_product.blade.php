@@ -61,18 +61,20 @@
                                 <label for="category" class="inline-block mb-2 text-base font-medium">Category</label>
                                 <select
                                     class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    data-choices="" data-choices-search-false="" name="category" id="category">
+                                    data-choices="" data-choices-search-false="" name="category_id" id="category">
                                     <option value="">Select Category</option>
-                                    <option value="food">Food</option>
-                                    <option value="drink">Drink</option>
-                                    <option value="snack">Snack</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ ucwords($category->name) }}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
                             <!--Image-->
                             <div class="lg:col-span-2 xl:col-span-12">
                                 <label for="image" class="inline-block mb-2 text-base font-medium">Image</label>
-                                <input type="file" id="upload" name="image" class="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500" placeholder="Enter your name">
+                                <input type="file" id="upload" name="image"
+                                    class="cursor-pointer form-file border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500"
+                                    placeholder="Enter your name">
                             </div>
 
                         </div>
@@ -99,7 +101,8 @@
 
                     <!--Image-->
                     <div class="px-5 py-8 rounded-md bg-sky-50 dark:bg-zink-600">
-                        <img src="{{ asset('assets/images/delivery-1.png') }}" alt="" class="block mx-auto h-48" id="uploadedProduct">
+                        <img src="{{ asset('assets/images/delivery-1.png') }}" alt="" class="block mx-auto h-48"
+                            id="uploadedProduct">
                     </div>
                 </div>
             </div>
@@ -119,7 +122,7 @@
             const uploadInput = document.getElementById('upload');
             const resetButton = document.querySelector('.reset-image');
             const defaultAvatarSrc =
-                "{{ asset('assets/images/delivery-1.png')}}";
+                "{{ asset('assets/images/delivery-1.png') }}";
 
             // Handle image upload
             uploadInput.addEventListener('change', function(event) {

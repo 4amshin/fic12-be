@@ -14,10 +14,10 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::factory()->create([
-            'name' => 'side dish'
+            'name' => 'Minuman'
         ]);
         Category::factory()->create([
-            'name' => 'main dish'
+            'name' => 'Snack'
         ]);
     }
 }

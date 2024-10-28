@@ -16,8 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price')->default(0);
             $table->integer('stock')->default(0);
-            $table->enum('category', ['food', 'drink', 'snack']);
-            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->boolean('is_best_seller')->default(false);
             $table->timestamps();

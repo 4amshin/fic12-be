@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -23,7 +24,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.add_product');
+        $categories = Category::all();
+        return view('admin.products.add_product', compact('categories'));
     }
 
     /**
@@ -32,6 +34,8 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $validatedData = $request->validated();
+        $category = Category::find($validatedData['category_id']);
+        $validatedData['category'] = $category->name;
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');

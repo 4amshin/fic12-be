@@ -25,7 +25,8 @@ class StoreProductRequest extends FormRequest
             'name' => 'required|string',
             'price' => 'required|integer',
             'stock' => 'required|integer',
-            'category' => 'required|string',
+            'category' => 'nullable',
+            'category_id' => 'required',
             'image' => 'nullable|mimes:png,jpg',
             'is_best_seller' => 'nullable|boolean',
         ];
