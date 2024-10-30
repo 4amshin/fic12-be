@@ -34,8 +34,6 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $validatedData = $request->validated();
-        $category = Category::find($validatedData['category_id']);
-        $validatedData['category'] = $category->name;
 
         if ($request->hasFile('image')) {
             $file = $request->file('image');
